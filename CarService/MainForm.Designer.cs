@@ -29,13 +29,17 @@
         private void InitializeComponent()
         {
             this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.addServiceButton = new System.Windows.Forms.Button();
+            this.addUserButton = new System.Windows.Forms.Button();
+            this.refreshUsersButton = new System.Windows.Forms.Button();
+            this.usersLabel = new System.Windows.Forms.Label();
+            this.usersListBox = new System.Windows.Forms.ListBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
             this.mainSplitContainer.Panel1.SuspendLayout();
+            this.mainSplitContainer.Panel2.SuspendLayout();
             this.mainSplitContainer.SuspendLayout();
-            this.usersLabel = new System.Windows.Forms.Label();
-            this.refreshUsersButton = new System.Windows.Forms.Button();
-            this.addUserButton = new System.Windows.Forms.Button();
-            this.usersListBox = new System.Windows.Forms.ListBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             //
             // mainSplitContainer
@@ -47,10 +51,14 @@
             // mainSplitContainer.Panel1
             //
             this.mainSplitContainer.Panel1.Controls.Add(this.addUserButton);
-            this.mainSplitContainer.Panel1.Controls.Add(this.refreshUsersButton);
             this.mainSplitContainer.Panel1.Controls.Add(this.usersLabel);
             this.mainSplitContainer.Panel1.Controls.Add(this.refreshUsersButton);
             this.mainSplitContainer.Panel1.Controls.Add(this.usersListBox);
+            //
+            // mainSplitContainer.Panel2
+            //
+            this.mainSplitContainer.Panel2.Controls.Add(this.addServiceButton);
+            this.mainSplitContainer.Panel2.Controls.Add(this.dataGridView1);
             this.mainSplitContainer.Size = new System.Drawing.Size(800, 458);
             this.mainSplitContainer.SplitterDistance = 266;
             this.mainSplitContainer.TabIndex = 3;
@@ -95,6 +103,26 @@
             this.usersListBox.Size = new System.Drawing.Size(260, 420);
             this.usersListBox.TabIndex = 0;
             //
+            // addServiceButton
+            //
+            this.addServiceButton.Location = new System.Drawing.Point(443, 6);
+            this.addServiceButton.Name = "addServiceButton";
+            this.addServiceButton.Size = new System.Drawing.Size(75, 23);
+            this.addServiceButton.TabIndex = 5;
+            this.addServiceButton.Text = "Добавить";
+            this.addServiceButton.UseVisualStyleBackColor = true;
+            this.addServiceButton.Click += new System.EventHandler(this.addServiceButton_Click);
+            //
+            // dataGridView1
+            //
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(530, 458);
+            this.dataGridView1.TabIndex = 4;
+            //
             // MainForm
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -106,8 +134,10 @@
             this.Text = "Car Service";
             this.mainSplitContainer.Panel1.ResumeLayout(false);
             this.mainSplitContainer.Panel1.PerformLayout();
+            this.mainSplitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).EndInit();
             this.mainSplitContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -119,6 +149,8 @@
         private System.Windows.Forms.Button refreshUsersButton;
         private System.Windows.Forms.Button addUserButton;
         private System.Windows.Forms.ListBox usersListBox;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button addServiceButton;
     }
 }
 

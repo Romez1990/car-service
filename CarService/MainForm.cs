@@ -16,6 +16,7 @@ namespace CarService
         {
             InitializeComponent();
             _ = FetchUsersAsync();
+            _ = FetchServicesAsync();
         }
 
         private readonly HttpClient httpClient = new HttpClient();
@@ -34,6 +35,14 @@ namespace CarService
             string json = await httpClient.GetStringAsync($"{serverUrl}/api/users/");
             List<User> users = JsonConvert.DeserializeObject<List<User>>(json, jsonSerializerSettings);
             usersListBox.DataSource = users;
+        }
+
+        protected async Task FetchServicesAsync()
+        {
+            string serverUrl = ConfigurationManager.AppSettings["serverUrl"];
+            string json = await httpClient.GetStringAsync($"{serverUrl}/api/services/");
+            List<Service> services = JsonConvert.DeserializeObject<List<Service>>(json, jsonSerializerSettings);
+            dataGridView1.DataSource = services;
         }
 
         private async void refreshUsersButton_Click(object sender, EventArgs e)
@@ -80,6 +89,29 @@ namespace CarService
             string json = JsonConvert.SerializeObject(user, jsonSerializerSettings);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             await httpClient.PostAsync($"{serverUrl}/api/user/", content);
+        }
+
+        private async void addServiceButton_Click(object sender, EventArgs e)
+        {
+            User selected = (User)usersListBox.SelectedItem;
+
+            Service service = new Service
+            {
+                UserId = selected.Id,
+                Description = "Some description",
+                Cost = 1000
+            };
+
+            await CreateServicesAsync(service);
+            await FetchServicesAsync();
+        }
+
+        protected async Task CreateServicesAsync(Service service)
+        {
+            string serverUrl = ConfigurationManager.AppSettings["serverUrl"];
+            string content = await Task.Run(() => JsonConvert.SerializeObject(service, jsonSerializerSettings));
+            var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
+            await httpClient.PostAsync($"{serverUrl}/api/service/", httpContent);
         }
     }
 }
