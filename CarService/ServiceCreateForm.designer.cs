@@ -39,7 +39,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(8, 58);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 20);
             this.label1.TabIndex = 0;
@@ -50,18 +50,19 @@
             this.descriptionInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.descriptionInfo.Location = new System.Drawing.Point(12, 80);
+            this.descriptionInfo.Location = new System.Drawing.Point(12, 32);
             this.descriptionInfo.MaxLength = 512;
             this.descriptionInfo.Multiline = true;
             this.descriptionInfo.Name = "descriptionInfo";
             this.descriptionInfo.Size = new System.Drawing.Size(448, 80);
-            this.descriptionInfo.TabIndex = 2;
+            this.descriptionInfo.TabIndex = 1;
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(8, 8);
+            this.label2.Location = new System.Drawing.Point(12, 121);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 20);
             this.label2.TabIndex = 2;
@@ -69,13 +70,13 @@
             // 
             // costInfo
             // 
-            this.costInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.costInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.costInfo.Location = new System.Drawing.Point(12, 30);
+            this.costInfo.Location = new System.Drawing.Point(12, 144);
             this.costInfo.MaxLength = 128;
             this.costInfo.Name = "costInfo";
             this.costInfo.Size = new System.Drawing.Size(448, 20);
-            this.costInfo.TabIndex = 1;
+            this.costInfo.TabIndex = 2;
             this.costInfo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.costInfo_KeyPress);
             // 
             // button1
