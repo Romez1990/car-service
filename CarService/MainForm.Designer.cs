@@ -35,6 +35,7 @@
             this.usersListBox = new System.Windows.Forms.ListBox();
             this.addServiceButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
             this.mainSplitContainer.Panel1.SuspendLayout();
             this.mainSplitContainer.Panel2.SuspendLayout();
@@ -58,6 +59,7 @@
             // mainSplitContainer.Panel2
             // 
             this.mainSplitContainer.Panel2.Controls.Add(this.addServiceButton);
+            this.mainSplitContainer.Panel2.Controls.Add(this.label1);
             this.mainSplitContainer.Panel2.Controls.Add(this.dataGridView1);
             this.mainSplitContainer.Size = new System.Drawing.Size(800, 458);
             this.mainSplitContainer.SplitterDistance = 266;
@@ -105,8 +107,7 @@
             // 
             // addServiceButton
             // 
-            this.addServiceButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.addServiceButton.Location = new System.Drawing.Point(443, 6);
+            this.addServiceButton.Location = new System.Drawing.Point(52, 6);
             this.addServiceButton.Name = "addServiceButton";
             this.addServiceButton.Size = new System.Drawing.Size(75, 23);
             this.addServiceButton.TabIndex = 5;
@@ -116,13 +117,24 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 35);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(530, 458);
+            this.dataGridView1.Size = new System.Drawing.Size(530, 423);
             this.dataGridView1.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Услуги";
             // 
             // MainForm
             // 
@@ -136,6 +148,7 @@
             this.mainSplitContainer.Panel1.ResumeLayout(false);
             this.mainSplitContainer.Panel1.PerformLayout();
             this.mainSplitContainer.Panel2.ResumeLayout(false);
+            this.mainSplitContainer.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).EndInit();
             this.mainSplitContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -152,6 +165,7 @@
         private System.Windows.Forms.ListBox usersListBox;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button addServiceButton;
+        private System.Windows.Forms.Label label1;
     }
 }
 
