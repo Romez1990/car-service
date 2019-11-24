@@ -12,15 +12,7 @@ namespace CarService
 {
     public partial class MainForm : Form
     {
-        public MainForm()
-        {
-            InitializeComponent();
-            _ = FetchUsersAsync();
-            _ = FetchServicesAsync();
-        }
-
         private readonly HttpClient httpClient = new HttpClient();
-
         private readonly JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings
         {
             ContractResolver = new DefaultContractResolver
@@ -29,20 +21,11 @@ namespace CarService
             }
         };
 
-        private async Task FetchUsersAsync()
+        public MainForm()
         {
-            string serverUrl = ConfigurationManager.AppSettings["serverUrl"];
-            string json = await httpClient.GetStringAsync($"{serverUrl}/api/users/");
-            List<User> users = JsonConvert.DeserializeObject<List<User>>(json, jsonSerializerSettings);
-            usersListBox.DataSource = users;
-        }
-
-        protected async Task FetchServicesAsync()
-        {
-            string serverUrl = ConfigurationManager.AppSettings["serverUrl"];
-            string json = await httpClient.GetStringAsync($"{serverUrl}/api/services/");
-            List<Service> services = JsonConvert.DeserializeObject<List<Service>>(json, jsonSerializerSettings);
-            dataGridView1.DataSource = services;
+            InitializeComponent();
+            _ = FetchUsersAsync();
+            _ = FetchServicesAsync();
         }
 
         private async void refreshUsersButton_Click(object sender, EventArgs e)
@@ -83,27 +66,42 @@ namespace CarService
             usersListBox.Enabled = true;
         }
 
+        private async void addServiceButton_Click(object sender, EventArgs e)
+        {
+            User selected = (User)usersListBox.SelectedItem;
+
+            Service service = null;
+            using (var form = new ServiceCreateForm(ref service, selected))
+            {
+                form.ShowDialog();
+            }
+
+            await CreateServicesAsync(service);
+            await FetchServicesAsync();
+        }
+
+        private async Task FetchUsersAsync()
+        {
+            string serverUrl = ConfigurationManager.AppSettings["serverUrl"];
+            string json = await httpClient.GetStringAsync($"{serverUrl}/api/users/");
+            List<User> users = JsonConvert.DeserializeObject<List<User>>(json, jsonSerializerSettings);
+            usersListBox.DataSource = users;
+        }
+
+        protected async Task FetchServicesAsync()
+        {
+            string serverUrl = ConfigurationManager.AppSettings["serverUrl"];
+            string json = await httpClient.GetStringAsync($"{serverUrl}/api/services/");
+            List<Service> services = JsonConvert.DeserializeObject<List<Service>>(json, jsonSerializerSettings);
+            dataGridView1.DataSource = services;
+        }
+
         private async Task CreateUserAsync(User user)
         {
             string serverUrl = ConfigurationManager.AppSettings["serverUrl"];
             string json = JsonConvert.SerializeObject(user, jsonSerializerSettings);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             await httpClient.PostAsync($"{serverUrl}/api/user/", content);
-        }
-
-        private async void addServiceButton_Click(object sender, EventArgs e)
-        {
-            User selected = (User)usersListBox.SelectedItem;
-
-            Service service = new Service
-            {
-                UserId = selected.Id,
-                Description = "Some description",
-                Cost = 1000
-            };
-
-            await CreateServicesAsync(service);
-            await FetchServicesAsync();
         }
 
         protected async Task CreateServicesAsync(Service service)

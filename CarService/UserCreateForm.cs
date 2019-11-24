@@ -46,22 +46,21 @@ namespace CarService
 
         private bool is_textboxes_empty()
         {
-            // инициализируем массив из текстбоксов на форме и обозначения текстбоксов
-            object[] textboxes = new object[] {lastName, firstName, middleName};
-            string[] messages = {"\"Фамилия\"", "\"Имя\"", "\"Отчество\""};
-
-            for (var i = 0; i < textboxes.Length; ++i)
+            if (string.IsNullOrEmpty(firstName.Text))
             {
-                var tbox = textboxes[i] as TextBox;
-                if (!string.IsNullOrEmpty(tbox.Text))
-                    continue;
+                MessageBox.Show("Поле \"Имя\" должно быть заполнено!", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return true;
+            }
 
-                // выводим сообщение
-                MessageBox.Show("Поле " + messages[i] + " должно быть заполнено!", "Внимание!", MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-                // фокусируемся на пустом текстбоксе
-                tbox.Focus();
+            if (string.IsNullOrEmpty(middleName.Text))
+            {
+                MessageBox.Show("Поле \"Отчество\" должно быть заполнено!", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return true;
+            }
 
+            if (string.IsNullOrEmpty(lastName.Text))
+            {
+                MessageBox.Show("Поле \"Фамилия\" должно быть заполнено!", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return true;
             }
 
