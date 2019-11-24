@@ -14,7 +14,7 @@ namespace CarService
 
             // инициализируем класс услуги
             service = new Service();
-            service.UserId = user.Id;
+            service.User = user.Id;
 
             // инициализируем необходимые переменные класса
             m_service   = service;

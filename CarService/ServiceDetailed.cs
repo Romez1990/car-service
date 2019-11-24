@@ -1,8 +1,9 @@
-﻿namespace CarService
+﻿
+namespace CarService
 {
-    public class Service
+    public class ServiceDetailed
     {
-        public string User { get; set; }
+        public User User { get; set; }
 
         public string Description { get; set; }
 
