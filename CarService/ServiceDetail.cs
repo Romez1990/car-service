@@ -1,4 +1,5 @@
-﻿
+﻿using System;
+
 namespace CarService
 {
     public class ServiceDetail
@@ -10,6 +11,8 @@ namespace CarService
         public string Description { get; set; }
 
         public float Cost { get; set; }
+
+        public DateTime Datetime { get; set; }
 
         public override string ToString()
         {
