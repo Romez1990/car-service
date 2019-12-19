@@ -90,6 +90,13 @@ namespace CarService
             await FetchServicesAsync();
         }
 
+        private async void deleteUserButton_Click(object sender, EventArgs e)
+        {
+            User user = (User)usersListBox.SelectedItem;
+            await DeleteUserAsync(user);
+            await FetchUsersAsync();
+        }
+
         private async Task FetchUsersAsync()
         {
             string serverUrl = ConfigurationManager.AppSettings["serverUrl"];
@@ -120,6 +127,12 @@ namespace CarService
             string content = await Task.Run(() => JsonConvert.SerializeObject(service, jsonSerializerSettings));
             var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
             await httpClient.PostAsync($"{serverUrl}/api/service/", httpContent);
+        }
+
+        private async Task DeleteUserAsync(User user)
+        {
+            string serverUrl = ConfigurationManager.AppSettings["serverUrl"];
+            await httpClient.DeleteAsync($"{serverUrl}/api/user/{user.Id}");
         }
     }
 }

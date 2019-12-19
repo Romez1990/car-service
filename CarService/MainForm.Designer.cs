@@ -37,6 +37,7 @@
             this.addServiceButton = new System.Windows.Forms.Button();
             this.servicesLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.deleteUserButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
             this.mainSplitContainer.Panel1.SuspendLayout();
             this.mainSplitContainer.Panel2.SuspendLayout();
@@ -52,6 +53,7 @@
             // 
             // mainSplitContainer.Panel1
             // 
+            this.mainSplitContainer.Panel1.Controls.Add(this.deleteUserButton);
             this.mainSplitContainer.Panel1.Controls.Add(this.addUserButton);
             this.mainSplitContainer.Panel1.Controls.Add(this.usersLabel);
             this.mainSplitContainer.Panel1.Controls.Add(this.refreshUsersButton);
@@ -148,6 +150,16 @@
             this.dataGridView1.Size = new System.Drawing.Size(614, 471);
             this.dataGridView1.TabIndex = 4;
             // 
+            // deleteUserButton
+            // 
+            this.deleteUserButton.Location = new System.Drawing.Point(222, 6);
+            this.deleteUserButton.Name = "deleteUserButton";
+            this.deleteUserButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteUserButton.TabIndex = 4;
+            this.deleteUserButton.Text = "Удалить";
+            this.deleteUserButton.UseVisualStyleBackColor = true;
+            this.deleteUserButton.Click += new System.EventHandler(this.deleteUserButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -179,6 +191,7 @@
         private System.Windows.Forms.Button addServiceButton;
         private System.Windows.Forms.Label servicesLabel;
         private System.Windows.Forms.Button refreshServicesButton;
+        private System.Windows.Forms.Button deleteUserButton;
     }
 }
 
