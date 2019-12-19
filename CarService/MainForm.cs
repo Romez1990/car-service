@@ -92,6 +92,10 @@ namespace CarService
 
         private async void deleteUserButton_Click(object sender, EventArgs e)
         {
+            DialogResult confirmResult = MessageBox.Show("Вы дейсвительно хотите удалить клиента?",
+                "Подтверждение удаления клиента", MessageBoxButtons.YesNo);
+            if (confirmResult != DialogResult.Yes) return;
+
             User user = (User)usersListBox.SelectedItem;
             await DeleteUserAsync(user);
             await FetchUsersAsync();
