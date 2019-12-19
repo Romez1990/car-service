@@ -1,4 +1,4 @@
-namespace CarService
+﻿namespace CarService
 {
     partial class MainForm
     {
@@ -63,8 +63,8 @@ namespace CarService
             this.mainSplitContainer.Panel2.Controls.Add(this.addServiceButton);
             this.mainSplitContainer.Panel2.Controls.Add(this.servicesLabel);
             this.mainSplitContainer.Panel2.Controls.Add(this.dataGridView1);
-            this.mainSplitContainer.Size = new System.Drawing.Size(877, 487);
-            this.mainSplitContainer.SplitterDistance = 291;
+            this.mainSplitContainer.Size = new System.Drawing.Size(919, 512);
+            this.mainSplitContainer.SplitterDistance = 296;
             this.mainSplitContainer.TabIndex = 3;
             // 
             // addUserButton
@@ -104,7 +104,7 @@ namespace CarService
             this.usersListBox.FormattingEnabled = true;
             this.usersListBox.Location = new System.Drawing.Point(3, 35);
             this.usersListBox.Name = "usersListBox";
-            this.usersListBox.Size = new System.Drawing.Size(285, 446);
+            this.usersListBox.Size = new System.Drawing.Size(290, 472);
             this.usersListBox.TabIndex = 0;
             // 
             // refreshServicesButton
@@ -142,17 +142,17 @@ namespace CarService
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 35);
+            this.dataGridView1.Location = new System.Drawing.Point(-1, 35);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(582, 452);
+            this.dataGridView1.Size = new System.Drawing.Size(614, 471);
             this.dataGridView1.TabIndex = 4;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(877, 487);
+            this.ClientSize = new System.Drawing.Size(919, 512);
             this.Controls.Add(this.mainSplitContainer);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
