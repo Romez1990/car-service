@@ -33,9 +33,10 @@ namespace CarService
             this.usersLabel = new System.Windows.Forms.Label();
             this.refreshUsersButton = new System.Windows.Forms.Button();
             this.usersListBox = new System.Windows.Forms.ListBox();
+            this.refreshServicesButton = new System.Windows.Forms.Button();
             this.addServiceButton = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
             this.mainSplitContainer.Panel1.SuspendLayout();
             this.mainSplitContainer.Panel2.SuspendLayout();
@@ -58,16 +59,17 @@ namespace CarService
             // 
             // mainSplitContainer.Panel2
             // 
+            this.mainSplitContainer.Panel2.Controls.Add(this.refreshServicesButton);
             this.mainSplitContainer.Panel2.Controls.Add(this.addServiceButton);
             this.mainSplitContainer.Panel2.Controls.Add(this.label1);
             this.mainSplitContainer.Panel2.Controls.Add(this.dataGridView1);
-            this.mainSplitContainer.Size = new System.Drawing.Size(800, 458);
-            this.mainSplitContainer.SplitterDistance = 266;
+            this.mainSplitContainer.Size = new System.Drawing.Size(877, 487);
+            this.mainSplitContainer.SplitterDistance = 291;
             this.mainSplitContainer.TabIndex = 3;
             // 
             // addUserButton
             // 
-            this.addUserButton.Location = new System.Drawing.Point(170, 6);
+            this.addUserButton.Location = new System.Drawing.Point(141, 6);
             this.addUserButton.Name = "addUserButton";
             this.addUserButton.Size = new System.Drawing.Size(75, 23);
             this.addUserButton.TabIndex = 3;
@@ -80,13 +82,13 @@ namespace CarService
             this.usersLabel.AutoSize = true;
             this.usersLabel.Location = new System.Drawing.Point(3, 11);
             this.usersLabel.Name = "usersLabel";
-            this.usersLabel.Size = new System.Drawing.Size(80, 13);
+            this.usersLabel.Size = new System.Drawing.Size(51, 13);
             this.usersLabel.TabIndex = 1;
-            this.usersLabel.Text = "Пользователи";
+            this.usersLabel.Text = "Клиенты";
             // 
             // refreshUsersButton
             // 
-            this.refreshUsersButton.Location = new System.Drawing.Point(89, 6);
+            this.refreshUsersButton.Location = new System.Drawing.Point(60, 6);
             this.refreshUsersButton.Name = "refreshUsersButton";
             this.refreshUsersButton.Size = new System.Drawing.Size(75, 23);
             this.refreshUsersButton.TabIndex = 2;
@@ -102,30 +104,28 @@ namespace CarService
             this.usersListBox.FormattingEnabled = true;
             this.usersListBox.Location = new System.Drawing.Point(3, 35);
             this.usersListBox.Name = "usersListBox";
-            this.usersListBox.Size = new System.Drawing.Size(260, 420);
+            this.usersListBox.Size = new System.Drawing.Size(285, 446);
             this.usersListBox.TabIndex = 0;
+            // 
+            // refreshServicesButton
+            // 
+            this.refreshServicesButton.Location = new System.Drawing.Point(52, 6);
+            this.refreshServicesButton.Name = "refreshServicesButton";
+            this.refreshServicesButton.Size = new System.Drawing.Size(75, 23);
+            this.refreshServicesButton.TabIndex = 6;
+            this.refreshServicesButton.Text = "Обновить";
+            this.refreshServicesButton.UseVisualStyleBackColor = true;
+            this.refreshServicesButton.Click += new System.EventHandler(this.refreshServicesButton_Click);
             // 
             // addServiceButton
             // 
-            this.addServiceButton.Location = new System.Drawing.Point(52, 6);
+            this.addServiceButton.Location = new System.Drawing.Point(133, 6);
             this.addServiceButton.Name = "addServiceButton";
             this.addServiceButton.Size = new System.Drawing.Size(75, 23);
             this.addServiceButton.TabIndex = 5;
             this.addServiceButton.Text = "Добавить";
             this.addServiceButton.UseVisualStyleBackColor = true;
             this.addServiceButton.Click += new System.EventHandler(this.addServiceButton_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 35);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(530, 423);
-            this.dataGridView1.TabIndex = 4;
             // 
             // label1
             // 
@@ -136,11 +136,23 @@ namespace CarService
             this.label1.TabIndex = 1;
             this.label1.Text = "Услуги";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 35);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(582, 452);
+            this.dataGridView1.TabIndex = 4;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 458);
+            this.ClientSize = new System.Drawing.Size(877, 487);
             this.Controls.Add(this.mainSplitContainer);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -166,6 +178,7 @@ namespace CarService
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button addServiceButton;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button refreshServicesButton;
     }
 }
 
