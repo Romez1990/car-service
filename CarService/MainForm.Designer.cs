@@ -1,4 +1,4 @@
-﻿namespace CarService
+namespace CarService
 {
     partial class MainForm
     {

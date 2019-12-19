@@ -40,6 +40,18 @@ namespace CarService
             refreshUsersButton.Enabled = addUserButton.Enabled = usersListBox.Enabled = true;
         }
 
+        private async void refreshServicesButton_Click(object sender, EventArgs e)
+        {
+            // отключаем элементы управления
+            refreshServicesButton.Enabled = addServiceButton.Enabled = dataGridView1.Enabled = false;
+
+            // получаем список клиентов с сервера
+            await FetchServicesAsync();
+
+            // включаем элементы управления
+            refreshServicesButton.Enabled = addServiceButton.Enabled = dataGridView1.Enabled = true;
+        }
+
         private async void addUserButton_Click(object sender, EventArgs e)
         {
             // отключаем элементы управления
