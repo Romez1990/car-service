@@ -31,31 +31,31 @@ namespace CarService
         private async void refreshUsersButton_Click(object sender, EventArgs e)
         {
             // отключаем элементы управления
-            refreshUsersButton.Enabled = addUserButton.Enabled = usersListBox.Enabled = false;
+            refreshUsersButton.Enabled = addUserButton.Enabled = deleteUserButton.Enabled = usersListBox.Enabled = false;
 
             // получаем список клиентов с сервера
             await FetchUsersAsync();
 
             // включаем элементы управления
-            refreshUsersButton.Enabled = addUserButton.Enabled = usersListBox.Enabled = true;
+            refreshUsersButton.Enabled = addUserButton.Enabled = deleteUserButton.Enabled = usersListBox.Enabled = true;
         }
 
         private async void refreshServicesButton_Click(object sender, EventArgs e)
         {
             // отключаем элементы управления
-            refreshServicesButton.Enabled = addServiceButton.Enabled = dataGridView1.Enabled = false;
+            refreshServicesButton.Enabled = addServiceButton.Enabled = deleteServiceButton.Enabled = dataGridView1.Enabled = false;
 
             // получаем список клиентов с сервера
             await FetchServicesAsync();
 
             // включаем элементы управления
-            refreshServicesButton.Enabled = addServiceButton.Enabled = dataGridView1.Enabled = true;
+            refreshServicesButton.Enabled = addServiceButton.Enabled = deleteServiceButton.Enabled = dataGridView1.Enabled = true;
         }
 
         private async void addUserButton_Click(object sender, EventArgs e)
         {
             // отключаем элементы управления
-            addUserButton.Enabled = refreshUsersButton.Enabled = usersListBox.Enabled = false;
+            addUserButton.Enabled = refreshUsersButton.Enabled = deleteUserButton.Enabled = usersListBox.Enabled = false;
 
             // вызываем диалог для заполнения нового клиента
             User user = null;
@@ -71,7 +71,7 @@ namespace CarService
             await FetchUsersAsync();
 
             // включаем элементы управления
-            addUserButton.Enabled = refreshUsersButton.Enabled = usersListBox.Enabled = true;
+            addUserButton.Enabled = refreshUsersButton.Enabled = deleteUserButton.Enabled = usersListBox.Enabled = true;
         }
 
         private async void addServiceButton_Click(object sender, EventArgs e)
