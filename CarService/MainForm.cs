@@ -135,6 +135,17 @@ namespace CarService
             string json = await httpClient.GetStringAsync($"{serverUrl}/api/services/");
             List<ServiceDetail> services = JsonConvert.DeserializeObject<List<ServiceDetail>>(json, jsonSerializerSettings);
             dataGridView1.DataSource = services;
+            SetColumnsHeaderText();
+        }
+
+        private void SetColumnsHeaderText()
+        {
+            dataGridView1.Columns[0].HeaderText = "Номер услуги";
+            dataGridView1.Columns[1].HeaderText = "Клиент";
+            dataGridView1.Columns[2].HeaderText = "Модель машины";
+            dataGridView1.Columns[3].HeaderText = "Описание поломки";
+            dataGridView1.Columns[4].HeaderText = "Цена";
+            dataGridView1.Columns[5].HeaderText = "Дата и время";
         }
 
         private async Task CreateUserAsync(User user)
