@@ -102,6 +102,27 @@ namespace CarService
             await FetchServicesAsync();
         }
 
+        private async void deleteServiceButton_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Выделите строку для удаления");
+                return;
+            }
+
+            DialogResult confirmResult = MessageBox.Show("Вы дейсвительно хотите удалить услугу?",
+                "Подтверждение удаления услуги", MessageBoxButtons.YesNo);
+            if (confirmResult != DialogResult.Yes) return;
+
+            foreach (DataGridViewRow dataGridViewRow in dataGridView1.SelectedRows)
+            {
+                ServiceDetail serviceDetail = (ServiceDetail)dataGridViewRow.DataBoundItem;
+                await DeleteServiceAsync(serviceDetail);
+            }
+
+            await FetchServicesAsync();
+        }
+
         private async Task FetchUsersAsync()
         {
             string serverUrl = ConfigurationManager.AppSettings["serverUrl"];
@@ -138,6 +159,12 @@ namespace CarService
         {
             string serverUrl = ConfigurationManager.AppSettings["serverUrl"];
             await httpClient.DeleteAsync($"{serverUrl}/api/user/{user.Id}");
+        }
+
+        private async Task DeleteServiceAsync(ServiceDetail service)
+        {
+            string serverUrl = ConfigurationManager.AppSettings["serverUrl"];
+            await httpClient.DeleteAsync($"{serverUrl}/api/service/{service.Id}");
         }
     }
 }

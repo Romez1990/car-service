@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.deleteUserButton = new System.Windows.Forms.Button();
             this.addUserButton = new System.Windows.Forms.Button();
             this.usersLabel = new System.Windows.Forms.Label();
             this.refreshUsersButton = new System.Windows.Forms.Button();
             this.usersListBox = new System.Windows.Forms.ListBox();
             this.refreshServicesButton = new System.Windows.Forms.Button();
+            this.deleteServiceButton = new System.Windows.Forms.Button();
             this.addServiceButton = new System.Windows.Forms.Button();
             this.servicesLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.deleteUserButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
             this.mainSplitContainer.Panel1.SuspendLayout();
             this.mainSplitContainer.Panel2.SuspendLayout();
@@ -62,12 +63,23 @@
             // mainSplitContainer.Panel2
             // 
             this.mainSplitContainer.Panel2.Controls.Add(this.refreshServicesButton);
+            this.mainSplitContainer.Panel2.Controls.Add(this.deleteServiceButton);
             this.mainSplitContainer.Panel2.Controls.Add(this.addServiceButton);
             this.mainSplitContainer.Panel2.Controls.Add(this.servicesLabel);
             this.mainSplitContainer.Panel2.Controls.Add(this.dataGridView1);
             this.mainSplitContainer.Size = new System.Drawing.Size(919, 512);
             this.mainSplitContainer.SplitterDistance = 296;
             this.mainSplitContainer.TabIndex = 3;
+            // 
+            // deleteUserButton
+            // 
+            this.deleteUserButton.Location = new System.Drawing.Point(222, 6);
+            this.deleteUserButton.Name = "deleteUserButton";
+            this.deleteUserButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteUserButton.TabIndex = 4;
+            this.deleteUserButton.Text = "Удалить";
+            this.deleteUserButton.UseVisualStyleBackColor = true;
+            this.deleteUserButton.Click += new System.EventHandler(this.deleteUserButton_Click);
             // 
             // addUserButton
             // 
@@ -119,6 +131,16 @@
             this.refreshServicesButton.UseVisualStyleBackColor = true;
             this.refreshServicesButton.Click += new System.EventHandler(this.refreshServicesButton_Click);
             // 
+            // deleteServiceButton
+            // 
+            this.deleteServiceButton.Location = new System.Drawing.Point(214, 6);
+            this.deleteServiceButton.Name = "deleteServiceButton";
+            this.deleteServiceButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteServiceButton.TabIndex = 5;
+            this.deleteServiceButton.Text = "Удалить";
+            this.deleteServiceButton.UseVisualStyleBackColor = true;
+            this.deleteServiceButton.Click += new System.EventHandler(this.deleteServiceButton_Click);
+            // 
             // addServiceButton
             // 
             this.addServiceButton.Location = new System.Drawing.Point(133, 6);
@@ -149,16 +171,6 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(614, 471);
             this.dataGridView1.TabIndex = 4;
-            // 
-            // deleteUserButton
-            // 
-            this.deleteUserButton.Location = new System.Drawing.Point(222, 6);
-            this.deleteUserButton.Name = "deleteUserButton";
-            this.deleteUserButton.Size = new System.Drawing.Size(75, 23);
-            this.deleteUserButton.TabIndex = 4;
-            this.deleteUserButton.Text = "Удалить";
-            this.deleteUserButton.UseVisualStyleBackColor = true;
-            this.deleteUserButton.Click += new System.EventHandler(this.deleteUserButton_Click);
             // 
             // MainForm
             // 
@@ -192,6 +204,7 @@
         private System.Windows.Forms.Label servicesLabel;
         private System.Windows.Forms.Button refreshServicesButton;
         private System.Windows.Forms.Button deleteUserButton;
+        private System.Windows.Forms.Button deleteServiceButton;
     }
 }
 
