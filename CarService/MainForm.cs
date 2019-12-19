@@ -99,6 +99,7 @@ namespace CarService
             User user = (User)usersListBox.SelectedItem;
             await DeleteUserAsync(user);
             await FetchUsersAsync();
+            await FetchServicesAsync();
         }
 
         private async Task FetchUsersAsync()
