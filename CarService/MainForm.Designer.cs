@@ -35,7 +35,7 @@ namespace CarService
             this.usersListBox = new System.Windows.Forms.ListBox();
             this.refreshServicesButton = new System.Windows.Forms.Button();
             this.addServiceButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.servicesLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
             this.mainSplitContainer.Panel1.SuspendLayout();
@@ -61,7 +61,7 @@ namespace CarService
             // 
             this.mainSplitContainer.Panel2.Controls.Add(this.refreshServicesButton);
             this.mainSplitContainer.Panel2.Controls.Add(this.addServiceButton);
-            this.mainSplitContainer.Panel2.Controls.Add(this.label1);
+            this.mainSplitContainer.Panel2.Controls.Add(this.servicesLabel);
             this.mainSplitContainer.Panel2.Controls.Add(this.dataGridView1);
             this.mainSplitContainer.Size = new System.Drawing.Size(877, 487);
             this.mainSplitContainer.SplitterDistance = 291;
@@ -127,14 +127,14 @@ namespace CarService
             this.addServiceButton.UseVisualStyleBackColor = true;
             this.addServiceButton.Click += new System.EventHandler(this.addServiceButton_Click);
             // 
-            // label1
+            // servicesLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Услуги";
+            this.servicesLabel.AutoSize = true;
+            this.servicesLabel.Location = new System.Drawing.Point(3, 11);
+            this.servicesLabel.Name = "servicesLabel";
+            this.servicesLabel.Size = new System.Drawing.Size(43, 13);
+            this.servicesLabel.TabIndex = 1;
+            this.servicesLabel.Text = "Услуги";
             // 
             // dataGridView1
             // 
@@ -177,7 +177,7 @@ namespace CarService
         private System.Windows.Forms.ListBox usersListBox;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button addServiceButton;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label servicesLabel;
         private System.Windows.Forms.Button refreshServicesButton;
     }
 }
