@@ -36,8 +36,9 @@ namespace CarService
                 return;
 
             // заполняем информацию в классе услуги из текстбоксов
-            m_service.Cost        = Convert.ToSingle(costInfo.Text);
+            m_service.CarModel    = carModelTextBox.Text;
             m_service.Description = descriptionInfo.Text;
+            m_service.Cost        = Convert.ToSingle(costInfo.Text);
 
             // закрываем диалог
             Close();
