@@ -109,7 +109,7 @@ namespace CarService
         {
             string serverUrl = ConfigurationManager.AppSettings["serverUrl"];
             string json = await httpClient.GetStringAsync($"{serverUrl}/api/services/");
-            List<ServiceDetailed> services = JsonConvert.DeserializeObject<List<ServiceDetailed>>(json, jsonSerializerSettings);
+            List<ServiceDetail> services = JsonConvert.DeserializeObject<List<ServiceDetail>>(json, jsonSerializerSettings);
             dataGridView1.DataSource = services;
         }
 
