@@ -31,15 +31,13 @@ namespace CarService
         private async void refreshUsersButton_Click(object sender, EventArgs e)
         {
             // отключаем элементы управления
-            refreshUsersButton.Enabled = addUserButton.Enabled = false;
-            usersListBox.Enabled = false;
+            refreshUsersButton.Enabled = addUserButton.Enabled = usersListBox.Enabled = false;
 
             // получаем список клиентов с сервера
             await FetchUsersAsync();
 
             // включаем элементы управления
-            refreshUsersButton.Enabled = addUserButton.Enabled = true;
-            usersListBox.Enabled = true;
+            refreshUsersButton.Enabled = addUserButton.Enabled = usersListBox.Enabled = true;
         }
 
         private async void addUserButton_Click(object sender, EventArgs e)
