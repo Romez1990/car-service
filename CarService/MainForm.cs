@@ -55,8 +55,7 @@ namespace CarService
         private async void addUserButton_Click(object sender, EventArgs e)
         {
             // отключаем элементы управления
-            addUserButton.Enabled = refreshUsersButton.Enabled = false;
-            usersListBox.Enabled = false;
+            addUserButton.Enabled = refreshUsersButton.Enabled = usersListBox.Enabled = false;
 
             // вызываем диалог для заполнения нового клиента
             User user = null;
@@ -72,8 +71,7 @@ namespace CarService
             await FetchUsersAsync();
 
             // включаем элементы управления
-            addUserButton.Enabled = refreshUsersButton.Enabled = true;
-            usersListBox.Enabled = true;
+            addUserButton.Enabled = refreshUsersButton.Enabled = usersListBox.Enabled = true;
         }
 
         private async void addServiceButton_Click(object sender, EventArgs e)
