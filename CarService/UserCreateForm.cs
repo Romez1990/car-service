@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 
 namespace CarService
@@ -8,13 +8,13 @@ namespace CarService
         private User m_user = null;
         private bool m_edit_mode = false;
 
-        public UserCreateForm(ref User user, bool edit_mode = false)
+        public UserCreateForm(ref User user, bool editMode = false)
         {
             InitializeComponent();
 
             // инициализируем необходимые переменные класса
             m_user = user;
-            m_edit_mode = edit_mode;
+            m_edit_mode = editMode;
 
             // если режим редактирования клиента
             if (m_edit_mode)
