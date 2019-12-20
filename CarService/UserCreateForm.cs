@@ -1,29 +1,26 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace CarService
 {
     public partial class UserCreateForm : Form
     {
-        private User m_user = null;
-        private bool m_edit_mode = false;
+        private readonly User user;
 
         public UserCreateForm(ref User user, bool editMode = false)
         {
             InitializeComponent();
 
             // инициализируем необходимые переменные класса
-            m_user = user;
-            m_edit_mode = editMode;
+            this.user = user;
 
             // если режим редактирования клиента
-            if (m_edit_mode)
-            {
-                // читаем информацию из класса клиента в текстбоксы
-                firstName.Text = m_user.FirstName;
-                middleName.Text = m_user.MiddleName;
-                lastName.Text = m_user.LastName;
-            }
+            if (!editMode) return;
+
+            // читаем информацию из класса клиента в текстбоксы
+            firstName.Text = this.user.FirstName;
+            middleName.Text = this.user.MiddleName;
+            lastName.Text = this.user.LastName;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -33,9 +30,9 @@ namespace CarService
                 return;
 
             // заполняем информацию в классе клиента из текстбоксов
-            m_user.FirstName = firstName.Text;
-            m_user.MiddleName = middleName.Text;
-            m_user.LastName = lastName.Text;
+            user.FirstName = firstName.Text;
+            user.MiddleName = middleName.Text;
+            user.LastName = lastName.Text;
 
             // закрываем диалог
             Close();
