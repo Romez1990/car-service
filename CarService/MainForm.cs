@@ -88,6 +88,22 @@ namespace CarService
             await FetchServicesAsync();
         }
 
+        private async void usersListBox_DoubleClick(object sender, EventArgs e)
+        {
+            User user = (User)usersListBox.SelectedItem;
+
+            using (var form = new UserCreateForm(ref user, true))
+            {
+                form.ShowDialog();
+            }
+
+            // отправляем нового клиента на сервер
+            await UpdateUserAsync(user);
+
+            // получаем список клиентов с сервера
+            await FetchUsersAsync();
+        }
+
         private async void deleteUserButton_Click(object sender, EventArgs e)
         {
             DialogResult confirmResult = MessageBox.Show("Вы дейсвительно хотите удалить клиента?",
@@ -162,6 +178,14 @@ namespace CarService
             string content = await Task.Run(() => JsonConvert.SerializeObject(service, jsonSerializerSettings));
             var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
             await httpClient.PostAsync($"{serverUrl}/api/service/", httpContent);
+        }
+
+        private async Task UpdateUserAsync(User user)
+        {
+            string serverUrl = ConfigurationManager.AppSettings["serverUrl"];
+            string json = JsonConvert.SerializeObject(user, jsonSerializerSettings);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            await httpClient.PutAsync($"{serverUrl}/api/user/{user.Id}", content);
         }
 
         private async Task DeleteUserAsync(User user)

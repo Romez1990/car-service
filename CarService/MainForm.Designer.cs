@@ -120,6 +120,7 @@
             this.usersListBox.Name = "usersListBox";
             this.usersListBox.Size = new System.Drawing.Size(290, 472);
             this.usersListBox.TabIndex = 0;
+            this.usersListBox.DoubleClick += new System.EventHandler(this.usersListBox_DoubleClick);
             // 
             // refreshServicesButton
             // 
