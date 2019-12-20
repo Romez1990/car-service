@@ -58,7 +58,7 @@ namespace CarService
             addUserButton.Enabled = refreshUsersButton.Enabled = deleteUserButton.Enabled = usersListBox.Enabled = false;
 
             // вызываем диалог для заполнения нового клиента
-            User user = null;
+            User user = new User();
             using (var form = new UserCreateForm(ref user))
             {
                 form.ShowDialog();

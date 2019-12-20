@@ -12,9 +12,6 @@ namespace CarService
         {
             InitializeComponent();
 
-            // инициализируем класс клиента
-            user = new User();
-
             // инициализируем необходимые переменные класса
             m_user = user;
             m_edit_mode = edit_mode;
