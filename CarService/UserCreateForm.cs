@@ -21,6 +21,7 @@ namespace CarService
             firstName.Text = this.user.FirstName;
             middleName.Text = this.user.MiddleName;
             lastName.Text = this.user.LastName;
+            phoneTextBox.Text = this.user.Phone;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -33,6 +34,7 @@ namespace CarService
             user.FirstName = firstName.Text;
             user.MiddleName = middleName.Text;
             user.LastName = lastName.Text;
+            user.Phone = phoneTextBox.Text;
 
             // закрываем диалог
             Close();
@@ -55,6 +57,12 @@ namespace CarService
             if (string.IsNullOrEmpty(lastName.Text))
             {
                 MessageBox.Show("Поле \"Фамилия\" должно быть заполнено!", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return true;
+            }
+
+            if (string.IsNullOrEmpty(phoneTextBox.Text))
+            {
+                MessageBox.Show("Поле \"Телефон\" должно быть заполнено!", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return true;
             }
 
