@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Net.Http;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CarService.Attributes;
 using CarService.Structures;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -157,12 +159,21 @@ namespace CarService.Forms
 
         private void SetColumnsHeaderText()
         {
-            dataGridView1.Columns[0].HeaderText = "Номер услуги";
-            dataGridView1.Columns[1].HeaderText = "Клиент";
-            dataGridView1.Columns[2].HeaderText = "Модель машины";
-            dataGridView1.Columns[3].HeaderText = "Описание поломки";
-            dataGridView1.Columns[4].HeaderText = "Цена";
-            dataGridView1.Columns[5].HeaderText = "Дата и время";
+            PropertyInfo[] propertiesInfo = typeof(ServiceDetail).GetProperties();
+            for (var i = 0; i < propertiesInfo.Length; i++)
+            {
+                SetColumnHeaderText(propertiesInfo[i], i);
+            }
+        }
+
+        private void SetColumnHeaderText(PropertyInfo propertyInfo, int i)
+        {
+            object[] attributes = propertyInfo.GetCustomAttributes(true);
+            foreach (object attribute in attributes)
+            {
+                if (!(attribute is VerboseNameAttribute verboseName)) continue;
+                dataGridView1.Columns[i].HeaderText = verboseName.Text;
+            }
         }
 
         private async Task CreateUserAsync(User user)
