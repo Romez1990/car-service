@@ -5,10 +5,11 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CarService.Structures;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace CarService
+namespace CarService.Forms
 {
     public partial class MainForm : Form
     {

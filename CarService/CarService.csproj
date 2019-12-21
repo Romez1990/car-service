@@ -50,36 +50,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ServiceDetail.cs" />
-    <Compile Include="ServiceCreateForm.cs">
+    <Compile Include="Structures\ServiceDetail.cs" />
+    <Compile Include="Forms\ServiceCreateForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServiceCreateForm.designer.cs">
+    <Compile Include="Forms\ServiceCreateForm.designer.cs">
       <DependentUpon>ServiceCreateForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserCreateForm.cs">
+    <Compile Include="Forms\UserCreateForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserCreateForm.designer.cs">
+    <Compile Include="Forms\UserCreateForm.designer.cs">
       <DependentUpon>UserCreateForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service.cs" />
-    <Compile Include="User.cs" />
-    <EmbeddedResource Include="MainForm.resx">
+    <Compile Include="Structures\Service.cs" />
+    <Compile Include="Structures\User.cs" />
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ServiceCreateForm.resx">
+    <EmbeddedResource Include="Forms\ServiceCreateForm.resx">
       <DependentUpon>ServiceCreateForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserCreateForm.resx">
+    <EmbeddedResource Include="Forms\UserCreateForm.resx">
       <DependentUpon>UserCreateForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -106,5 +106,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

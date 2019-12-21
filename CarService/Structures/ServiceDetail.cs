@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CarService
+namespace CarService.Structures
 {
     public class ServiceDetail
     {

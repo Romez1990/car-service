@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
+using CarService.Structures;
 
-namespace CarService
+namespace CarService.Forms
 {
     public partial class ServiceCreateForm : Form
     {
